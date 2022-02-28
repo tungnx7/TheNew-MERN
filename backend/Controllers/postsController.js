@@ -13,10 +13,8 @@ export const getPosts = async (req, res) => {
 export const createPost = async (req, res) => {
   try {
     const newPost = req.body;
-
     const post = new postModel(newPost);
     await post.save();
-
     res.status(200).json(post);
   } catch (err) {
     res.status(500).json(err);
